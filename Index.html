@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Amal Lalgi</title>
+	<link rel="icon" type="image/png" href="Assets/Images/Sprites/Pacman-Sprites/Pacman-Sprite (2).png">
+	<link rel="stylesheet" href="Styles/Css/Styles.css">
+	<script src="Scripts/Script.js" defer></script>
+</head>
+<body>
+	<!-- Full Website Container -->
+	<div class="site-container">
+		<!-- Home Page -->
+		<div class="home-wrapper" id="Home">
+			<!-- Navigation Bar -->
+			<nav>
+				<div class="logo"><a href="#"><img id="logo-image" alt="Amal Lalgi"></a></div>
+				<ul class="nav-links">
+					<li><a href="#Home">Home</a></li>
+					<li><a href="#About">My Story</a></li>
+					<li><a href="#Skills">My Skills</a></li>
+					<li><a href="#Works">Works</a></li>
+					<li><a href="#Contact">Contact Me</a></li>
+				</ul>
+				<!-- Burger Menu (Mobile only) -->
+				<div class="burger-menu">
+			        <div class="line1"></div>
+			        <div class="line2"></div>
+			        <div class="line3"></div>
+			    </div>
+			</nav>
+			<!-- Home Content -->
+			<div class="home-container">
+				<div class="home-grid">
+					<!-- Home Page Description -->
+					<div class="main-description">
+						<h1>
+							Hello there,<br>
+							I am <span class="special-text" id="special-text" onclick="randomColor()">Amal</span>.<br>
+							I make beautiful websites and good web applications!
+						</h1>
+						<h4>
+							GAME : Here are 3 random pokemon (including mega, dynamax, legendary and regional variants [Gen 1 - 8]), each time you refresh the page you will get 3 random pokemon. The game is simple, try and get 3 shiny pokemon to appear! (When a siny pokemon appears, all the containers will be the same!) <br>
+							[NOTE: You can also click on any pokemon here to refresh!]
+						</h4>
+					</div>
+					<!-- Pokemon Random Game -->
+					<div class="minion-container">
+						<div onclick="shinyOrNot()" class="minion minion1"><img id="image-wrapper1"/></div>
+						<div onclick="shinyOrNot()" class="minion minion2"><img id="image-wrapper2"/></div>
+						<div onclick="shinyOrNot()" class="minion minion3"><img id="image-wrapper3"/></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- About Page -->
+		<div class="about-wrapper" id="About">
+			<div class="about-container">
+				<div class="about-grid">
+					<!-- About Page Image (Hero Image) -->
+					<div class="image-wrapper"><img id="hero-image" src="Assets/Images/Main/Me.jpg" alt="my-image"></div>
+					<!-- About Page Description -->
+					<div class="about-description">
+						<!-- Description -->
+						<div class="description">
+							<h2>My Story short!</h2>
+			    			<h3>
+			    				Hello again! As I said, my name is Amal Lalgi. (Image is displayed somewhere in here! which's probably the only nice image I've got of myself, i.e alone!) Anyways, just call me 'Amal'! I am a passionate web developer from Kerala, India. <br> I love to code, I mainly make websites (Landing pages, Portfolio Websites etc.) and web applications, eventhough I am into bash scripting and problem solving. <br> I'm something of an Artist myself too! I like to make illustrations, concept art and website designs! And I'm currently on a quest to master full stack web dev.
+			    			</h3>
+						</div>
+					</div>
+					<!-- Prank Container -->
+					<div class="prank-container">
+						<h4> <!-- Prank Description -->
+				    		 ...That's probably everything you'll need to know about me (for now), you can contact me directly for more information. Still wanna know more about me? Click the button!
+				    	</h4>
+				    	<button><a href="#Skills">READ MORE!</a></button> <!-- Prank Button -->
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Skills Page -->
+		<div class="skills-wrapper" id="Skills">
+			<div class="skills-container">
+				<div class="skills-grid">
+					<!-- Coding Card -->
+					<div class="coding-card skill-card">
+						<div class="heading"> <!-- Title -->
+		                	<span>My Coding Skills</span>
+			            </div>
+			            <div class="markup">
+			                <span>HTML</span><span>Markdown</span>
+			            </div>
+			            <div class="styles">
+			                <span>CSS</span><span>Sass</span><span>Bootstrap</span>
+			            </div>
+			            <div class="backend">
+			                <span>JavaScript</span><span>Node JS | NPM</span><span>React JS</span><span>JSON</span>
+			            </div>
+			            <div class="basic">
+			                <span>Swift</span><span>Python | NumPy | SciPy</span><span>Kotlin</span><span>MySQL</span>
+			            </div>
+					</div> 
+					<!-- Tools Card -->
+					<div class="tools-card skill-card">
+						<div class="heading"> <!-- Title -->
+					        <span>Tools I use</span>
+					    </div>
+					    <div class="terminal bubbles">
+					        <span>Terminal</span><span>Windows Terminal</span><span>Hyper</span>
+					    </div>
+					    <div class="shell bubbles">
+					        <span>Shell</span><span>Zsh</span><span>Bash</span>
+					    </div>
+					    <div class="code-editor bubbles">
+					        <span>Code Editor</span><span>Visual Studio Code</span><span>Sublime Text</span>
+					    </div>
+					    <div class="design-tools bubbles">
+					        <span>Prototyping Tools</span><span>Illustrator</span><span>Adobe XD</span><span>Figma</span>
+					    </div>
+					    <div class="art-tools bubbles">
+					        <span>Art Tools</span><span>Adobe Photoshop</span><span>Ibix Paint X</span>
+					    </div>
+					</div>
+					<!-- Interests Card -->
+					<div class="interests-card skill-card">
+						<div class="heading">
+			                <span>My Interests and hobbies</span>
+			            </div>
+			            <div class="web bubbles">
+			                <span>Web</span><span>Neumorphism</span><span>Glassmorphism</span><span>Fonts</span>
+			            </div>
+			            <div class="art bubbles">
+			                <span>Art</span><span>Vector Illustrations</span><span>Concept Art</span><span>Pixel Art</span>
+			            </div>
+			            <div class="martial-arts bubbles">
+			                <span>Martial Arts</span><span>Wing Chun</span><span>Kendo | Kenjutsu</span><span>Tai Chi</span>
+			            </div>
+			            <div class="reading bubbles">
+			                <span>Reading</span><span>Manga</span><span>Comics</span><span>Psychology</span>
+			            </div>
+			            <div class="television bubbles">
+			                <span>Television</span><span>Action</span><span>Superhero</span><span>Anime</span><span>Sitcom</span>
+			            </div>
+					</div>
+					<!-- Description (Skills Page) -->
+					<div class="skills-description-container skill-card">
+			        	<h1>Description</h1>
+			        	<p>
+			        		Displayed here are the Tools I use in my dev life (I have added a fair share of customizations to most of 'em though!), the languages and frameworks I am familiar with, things I do when I'm free (i.e when I'm not at school or infront of the TV!) etc.
+			        	</p>
+		        	</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Works Page -->
+		<div class="works-wrapper" id="Works">
+			<div class="work-container">
+				<div class="works-grid">
+					<div class="title"><h2>Works and other Projects</h2></div> <!-- Title -->
+					<!-- Card One (Code) -->
+					<div class="cards card-1">
+						<h3>My Code Works</h3>
+						<button><a href="#">GO</a></button>
+					</div>
+					<!-- Card Two (Art) -->
+					<div class="cards card-2">
+						<h3>My Art Gallary</h3>
+						<button><a href="#">GO</a></button>
+					</div>
+					<!-- Card Three (Description) -->
+					<div class="card-3">
+						<h4>
+			    			Here are the Code and Art related works I've spent time on! Some of 'em are'nt complete yet though... My art works are also shown at Pintrest and Deviantart and some of my Code projects are shown on codepen. Make sure to check 'em out! Hope you like em!
+			    		</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Contact Me Page -->
+		<div class="contact-wrapper" id="Contact">
+			<div class="contact-container">
+				<div class="contact-grid">
+					<!-- Social Media Links -->
+					<div class="social-media">
+						<a href="#"><i class="fab fa-instagram" style="color: magenta;"></i></a>
+						<a href="#"><i class="fab fa-twitter" style="color: skyblue;"></i></a>
+						<a href="#"><i class="fab fa-linkedin-in" style="color: blue;"></i></a>
+						<a href="#"><i class="fab fa-pinterest-p" style="color: crimson;"></i></a>
+						<a href="#"><i class="fab fa-deviantart" style="color: limegreen;"></i></a>
+						<a href="#"><i class="fab fa-dribbble" style="color: hotpink;"></i></a>
+						<a href="#"><i class="fab fa-github" style="color: whitesmoke;"></i></a>
+						<a href="#"><i class="fab fa-codepen" style="color: ghostwhite;"></i></a>
+					</div>
+					<!-- Address -->
+					<div class="address" id="copy-text">
+						<h1>My Address</h1>
+						<h4 id="address">
+							Amal Lalgi <br>
+							Padinjarayil House <br>
+							Narakakkanam P.O. <br>
+							Narakakkanam, Idukki <br>
+							Pin-Code: 685602 <br>
+						</h4>
+						<p id="message-copy">Click me to copy the address!</p>
+					</div>
+					<!-- Email Form -->
+					<div class="form-container">
+						<div class="form-heading"> <!-- Email Title -->
+							<h1>CONTACT ME!</h1>
+							<h3>amallalgi2487@gmail.com</h3>
+						</div>
+						<form action="email"> <!-- Form -->
+							<input type="text" name="name" id="userName" placeholder="Name"/>
+							<input type="text" name="email" id="userEmail" placeholder="Email Address"/>
+							<textarea name="message" id="userMessage" rows="10" cols="30" placeholder="Message"></textarea>
+						</form>
+						<div class="form-buttons"> <!-- Email Buttons -->
+							<button onclick="goTop()">GO BACK TOP</button>
+							<button id="cancel-btn" onclick="emailForm()">CANCEL</button>
+							<button id="send-btn">SEND</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

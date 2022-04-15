@@ -1,0 +1,557 @@
+@import './Mixins';
+@import './Imports';
+@import './Variables';
+@import "FontAwesome/fontawesome.scss";
+@import "FontAwesome/brands.scss";
+@import "FontAwesome/regular.scss";
+@import "FontAwesome/solid.scss";
+@import "FontAwesome/v4-shims.scss";
+
+// Scroll bar
+
+::-webkit-scrollbar {
+  width: 20px;
+  background-color: transparent;
+}
+::-webkit-scrollbar-track {
+  background: rgba(26, 26, 26, 0);
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(214, 222, 225, 0.3);
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbf;
+}
+
+// All elements
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+
+}
+
+// Styling
+
+body {
+    background-color: $background;
+
+    .site-container {
+        scroll-behavior: smooth;
+        background-color: $background;
+        font-family: $paragraph;
+        @include selection();
+    }
+}
+
+// Navigation
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 10px 10px 10px;
+
+    .logo {
+        height: 1.5rem;
+
+        img {
+            height: 100%;
+        }
+    }
+
+    ul {
+        list-style-type: none;
+        margin-left: auto;
+
+        li {
+            display: inline-block;
+            text-decoration: none;
+            cursor: pointer;
+            @include acrillic-effect(5px, 5px);
+
+            a {
+                text-decoration: none;
+                font-family: $title;
+                color: $foreground-grey;
+
+                &:hover {
+                    color: darken($foreground-grey, 10%);
+                }
+            }
+        }
+    }
+}
+
+// Burger Menu
+
+.burger-menu div {
+  width: 20px;
+  height: 4px;
+  margin: 3px;
+  border-radius: 5px;
+}
+.line1 {
+  background-color: $monokai-red;
+}
+.line2 {
+  background-color: $monokai-yellow;
+}
+.line3 {
+  background-color: $monokai-green;
+}
+
+.burger-menu {
+  display: none;
+  cursor: pointer;
+}
+
+// Media (Mobile) (Navigation Bar)
+
+@media screen and (max-width: 425px) {
+    nav ul {
+        display: none;
+    }
+
+    .burger-menu {
+        display: block;
+    }
+}
+
+// Home Page
+
+.home-wrapper {
+    height: 100vh;
+
+    .home-container {
+        height: 100%;
+
+        .home-grid {
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(100px, 1fr));
+            grid-template-rows: repeat(3, minmax(100px, 1fr));
+
+            .main-description {
+                grid-column: span 3;
+                grid-row: span 2;
+                display: flex;
+                justify-content: space-evently;
+                align-items: center;
+                flex-direction: column;
+                @include acrillic-effect(10px, 10px);
+
+                h1 {
+                    color: $foreground-yellow;
+                    font-size: 2.3rem;
+                }
+
+                h4 {
+                    margin-top: 10px;
+                    color: $foreground-dark-grey;
+                    font-size: 0.5rem;
+                }
+            }
+            .minion-container {
+                grid-column: span 3;
+                grid-row: 3 / -1;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                height: 70%;
+                @include acrillic-effect(10px, 0 10px);
+
+                .minion {
+                    background-color: $test3;
+                    @include acrillic-effect(5px, 5px);
+                    cursor: pointer;
+                    background: url(../../Assets/Images/Backgrounds/Pokdex-Background.png);
+                    background-position: center;
+                    background-size: cover;
+
+                    img {
+                        width: 100%;
+                        height: 77px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.about-wrapper {
+    height: 200vh;
+
+    .about-container {
+        height: 100%;
+
+        .about-grid {
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(100px, 1fr));
+            grid-template-rows: repeat(6, minmax(100px, 1fr));
+
+            .about-description {
+                grid-column: span 3;
+                grid-row: 1 / 4;
+                padding: 10px;
+                color: $monokai-green;
+                @include flex-center(row);
+                @include acrillic-effect(10px, 10px);
+
+                h2 {
+                    color: $foreground-grey;
+                    font-family: $title;
+                    padding-bottom: 20px;
+                    font-size: 2rem;
+                }
+            }
+
+            .image-wrapper {
+                grid-column: span 3;
+                grid-row: 4 / 6;
+                @include flex-center(row);
+
+                img {
+                    min-height: 100%;
+                    margin: 0;
+                    height: 40px;
+                    border-radius: 8px;
+                }
+            }
+
+            .prank-container {
+                grid-column: span 3;
+                grid-row: 6 / -1;
+                padding: 10px;
+                @include flex-center();
+                color: $foreground-dark-grey;
+                text-align: center;
+                padding-bottom: 0;
+                margin-bottom: 0;
+
+                button {
+                    @include button(10px, 10px 5px);
+                }
+            }
+        }
+    }
+}
+
+.skills-wrapper {
+    height: 200vh;
+
+    .skills-container {
+        height: 100%;
+
+        .skills-grid {
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(100px, 1fr));
+            grid-template-rows: repeat(4, minmax(100px, 1fr));
+            margin: 10px;
+
+            .skill-card {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-evenly;
+                flex-direction: column;
+                font-size: 0.6rem;
+                font-weight: 800;
+                @include acrillic-effect(0, 10px);
+
+                .heading {
+                    text-align: left;
+
+                    span {
+                        background: $background;
+                        font-family: $title;
+                        color: $foreground-grey;
+                        font-size: 1.2rem;
+                        text-align: left;
+                    }
+                }
+
+                .bubbles span {
+                    &:nth-of-type(1) {
+                        background-color: $monokai-yellow;
+                    }
+                }
+
+                span {
+                    background-color: $monokai-red;
+                    padding: 5px;
+                    text-align: center;
+                    border-radius: 8px;
+                    white-space: nowrap;
+                    margin: 2px;
+                }
+            }
+
+            .coding-card {
+                grid-column: span 3;
+                grid-row: 1;
+                padding: 10px;
+                text-align: left;
+
+                span {
+                    background-color: $monokai-green;
+                }
+            }
+            .tools-card {
+                grid-column: span 3;
+                grid-row: 2;
+                padding: 10px;
+                text-align: left;
+
+                span {
+                    background-color: $monokai-red;
+                }
+            }
+            .interests-card {
+                grid-column: span 3;
+                grid-row: 3;
+                padding: 10px;
+                text-align: left;
+
+                span {
+                    background-color: $monokai-purple;
+                }
+            }
+            .skills-description-container {
+                grid-column: span 3;
+                grid-row: 4;
+                text-align: left;
+                @include acrillic-effect(10px, 10px);
+
+                h1 {
+                    color: $foreground-grey;
+                    font-family: $title;
+                    padding-bottom: 20px;
+                    font-size: 2rem;
+                }
+
+                p {
+                    font-size: 1rem;
+                    color: $foreground-dark-grey;
+                }
+            }
+        }
+    }
+}
+
+.works-wrapper {
+    height: 100vh;
+
+    .work-container {
+        height: 100%;
+        margin: 10px;
+
+        .works-grid {
+            height: 100%;
+            display: grid;
+            grid-gap: 5px;
+            grid-template-columns: repeat(2, minmax(100px, 1fr));
+            grid-template-rows: repeat(4, minmax(100px, 1fr));
+
+            .title {
+                padding: 10px 0;
+                grid-column: span 2;
+                text-align: left;
+                display: flex;
+                align-items: center;
+
+                h2 {
+                    font-family: $title;
+                    font-size: 2rem;
+                    color: $foreground-grey;
+                    margin: 10px 10px 5px 10px;
+                }
+            }
+
+            .cards {
+                @include acrillic-effect(10px, 2px);
+                border-radius: 8px;
+                display: flex;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                background: url(../../Assets/Images/Backgrounds/Forest-Scene.jpg);
+                background-size: cover;
+                font-family: $title;
+                font-size: 1rem;
+
+                button {
+                    margin-top: 10px;
+                    @include button();
+                    width: 100%;
+                }
+            }
+
+            .card-1 {
+                grid-column: 1 / 2;
+                grid-row: 2 / 4;
+            }
+            .card-2 {
+                grid-column: 2 / -1;
+                grid-row: 2 / 4;
+            }
+            .card-3 {
+                grid-column: 1 / -1;
+                grid-row: 4 / -1;
+                text-align: center;
+                // margin-top: 10px;
+                @include acrillic-effect(5px, 10px);
+                align-items: center;
+                
+                h4 {
+                    color: $foreground-dark-grey;
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+}
+
+.contact-wrapper {
+    height: 100vh;
+
+    .contact-container {
+        height: 100%;
+
+        .contact-grid {
+            margin: 10px;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(100px, 1fr));
+            grid-template-rows: repeat(6, minmax(100px, 1fr));
+
+            .form-container {
+                grid-column: span 3;
+                grid-row: 1 / 5;
+
+                .form-heading {
+                    margin-bottom: 10px;
+
+                    h1 {
+                        margin: 5px;
+                        font-family: $title;
+                        color: $foreground-grey;
+                    }
+
+                    h3 {
+                        margin: 5px;
+                        color: $monokai-red;
+                    }
+                }
+
+                form {
+                    input {
+                        background-color: lighten($background, 5%);
+                        border: 1px solid lighten($background, 10%);
+                        outline: none;
+                        border-radius: 4px;
+                        color: $foreground-dark-grey;
+                        padding: 5px;
+                        margin-bottom: 5px;
+                        font-size: 1rem;
+                    }
+
+                    textarea {
+                        background-color: lighten($background, 5%);
+                        border: 1px solid lighten($background, 10%);
+                        outline: none;
+                        border-radius: 4px;
+                        color: $foreground-dark-grey;
+                        padding: 5px;
+                        margin-bottom: 5px;
+                        font-size: 1rem;
+                        resize: none;
+                        width: 100% !important;
+                    }
+                }
+
+                .form-buttons {
+                    text-align: right;
+                    margin-right: 10px;
+
+                    button {
+                        font-family: $title;
+                        color: $monokai-green;
+                        background-color: transparent;
+                        outline: none;
+                        border: none;
+                        margin: 5px;
+
+                        &:nth-of-type(1) {
+                            color: $monokai-purple;
+
+                            &:hover {
+                                color: lighten($monokai-purple, 10%)
+                            }
+                        }
+                        &:nth-of-type(2) {
+                            color: $monokai-red;
+
+                            &:hover {
+                                color: lighten($monokai-red, 10%)
+                            }
+                        }
+                        &:nth-of-type(3) {
+                            color: $monokai-green;
+
+                            &:hover {
+                                color: lighten($monokai-green, 10%)
+                            }
+                        }
+                    }
+                }
+            }
+
+            .social-media {
+                grid-column: span 1;
+                grid-row: 5 / -1;
+                @include acrillic-effect(10px, 5px 5px 10px 5px);
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+                flex-direction: column;
+                align-items: center;
+                font-size: 1.5rem;
+
+                a {
+                    margin: 5px;
+                }
+            }
+
+            .address {
+                grid-column: 2 / -1;
+                grid-row: 5 / -1;
+                @include acrillic-effect(10px, 5px 5px 10px 5px);
+
+                h1 {
+                    font-size: 1.3rem;
+                    font-family: $title;
+                    color: $foreground-grey;
+                    margin-bottom: 20px;
+                }
+                h4 {
+                    font-size: 1rem;
+                    color: $foreground-grey;
+                    margin-bottom: 10px;
+                }
+                p {
+                    font-size: 0.6rem;
+                    color: $foreground-dark-grey;
+                }
+            }
+        }
+    }
+}
