@@ -1,11 +1,11 @@
 @import './Mixins';
 @import './Imports';
 @import './Variables';
-@import "FontAwesome/fontawesome.scss";
-@import "FontAwesome/brands.scss";
-@import "FontAwesome/regular.scss";
-@import "FontAwesome/solid.scss";
-@import "FontAwesome/v4-shims.scss";
+// @import "FontAwesome/fontawesome.scss"; // Font Awesome
+// @import "FontAwesome/brands.scss";
+// @import "FontAwesome/regular.scss";
+// @import "FontAwesome/solid.scss";
+// @import "FontAwesome/v4-shims.scss";
 
 // Scroll bar
 
@@ -40,6 +40,7 @@
 
 body {
     background-color: $background;
+    overflow-x: hidden;
 
     .site-container {
         scroll-behavior: smooth;
@@ -95,6 +96,7 @@ nav {
   height: 4px;
   margin: 3px;
   border-radius: 5px;
+  transition: all 300ms ease;
 }
 .line1 {
   background-color: $monokai-red;
@@ -114,12 +116,57 @@ nav {
 // Media (Mobile) (Navigation Bar)
 
 @media screen and (max-width: 425px) {
-    nav ul {
-        display: none;
+    .nav-links {
+        position: fixed;
+        inset: 0 0 0 30%;
+        display: flex;
+        flex-direction: column;
+        padding: min(30vh, 10rem) 2rem;
+        text-align: center;
+        z-index: 1000;
+        background-color: #1a1a1a;
+        border: 1px solid darken($foreground-dark-grey, 20%);
+        transform: translateX(100%);
+        transition: transform 300ms ease-out;
+
+        @supports (backdrop-filter: blur(1rem)) {
+            background-color: #00000050;
+            backdrop-filter: blur(1rem);
+        }
+
+        li {
+            background-color: #00000070;
+
+            &:hover {
+                background-color: #f4005f30;
+            }
+        }
+    }
+
+    .nav-links[data-visible="true"] {
+        transform: translateX(0%);
     }
 
     .burger-menu {
+        position: relative;
+        z-index: 9999;
         display: block;
+
+        &[aria-expanded="true"] {
+            position: fixed;
+            // top: 100%;
+            left: 89%;
+
+            .line1 {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+            .line2 {
+                opacity: 0;
+            }
+            .line3 {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+        }
     }
 }
 
@@ -141,14 +188,14 @@ nav {
                 grid-column: span 3;
                 grid-row: span 2;
                 display: flex;
-                justify-content: space-evently;
+                justify-content: space-between;
                 align-items: center;
                 flex-direction: column;
                 @include acrillic-effect(10px, 10px);
 
                 h1 {
                     color: $foreground-yellow;
-                    font-size: 2.3rem;
+                    font-size: 2.4rem;
                 }
 
                 h4 {
@@ -203,13 +250,21 @@ nav {
                 padding: 10px;
                 color: $monokai-green;
                 @include flex-center(row);
+                justify-content: space-between;
                 @include acrillic-effect(10px, 10px);
 
-                h2 {
-                    color: $foreground-grey;
-                    font-family: $title;
-                    padding-bottom: 20px;
-                    font-size: 2rem;
+                .description {
+                    height: 100%;
+                    display: flex;
+                    justify-content: space-around;
+                    flex-direction: column;
+
+                    h2 {
+                        color: $foreground-grey;
+                        font-family: $title;
+                        padding-bottom: 20px;
+                        font-size: 2rem;
+                    }
                 }
             }
 
@@ -410,6 +465,8 @@ nav {
                 // margin-top: 10px;
                 @include acrillic-effect(5px, 10px);
                 align-items: center;
+                display: flex;
+                justify-content: center;
                 
                 h4 {
                     color: $foreground-dark-grey;
@@ -422,6 +479,7 @@ nav {
 
 .contact-wrapper {
     height: 100vh;
+    margin-bottom: 10px;
 
     .contact-container {
         height: 100%;
@@ -438,7 +496,7 @@ nav {
                 grid-row: 1 / 5;
 
                 .form-heading {
-                    margin-bottom: 10px;
+                    margin-bottom: 20px;
 
                     h1 {
                         margin: 5px;
@@ -471,7 +529,7 @@ nav {
                         border-radius: 4px;
                         color: $foreground-dark-grey;
                         padding: 5px;
-                        margin-bottom: 5px;
+                        // margin-bottom: 5px;
                         font-size: 1rem;
                         resize: none;
                         width: 100% !important;

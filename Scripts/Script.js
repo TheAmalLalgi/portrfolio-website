@@ -21,7 +21,6 @@ const randomColor = () => {
 	randomColorIndex = Math.floor(Math.random() * Colors.length);
 	selectedColor = Colors[randomColorIndex];
 	document.getElementById('special-text').style.color = `${selectedColor}`;
-	// document.getElementById('nav-home').style.color = `${selectedColor}`;
 }
 
 // Pokemon Random Image Loader
@@ -74,57 +73,49 @@ const shinyOrNot = () => {
 	}
 }
 
-// // Navigation Bar
+// Navigation Bar
 
-// const navSlide = () => {
-//     // Imports
-//     const burger = document.querySelector('.burger-menu');
-//     const nav = document.querySelector('.nav-links');
-//     const navLinks = document.querySelectorAll('.nav-links li');
+const primaryNav = document.querySelector('.nav-links');
+const navToggle = document.querySelector('.burger-menu');
 
-//     burger.addEventListener('click', () => {
-//         // Toggle Navigation bar
-//         nav.classList.toggle('nav-active');
-//         // Animate the links
-//         navLinks.forEach((link, index) => {
-//             if (link.style.animation) {
-//                 link.style.animation = '';
-//             } else {
-//                 link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.5}s`;
-//             }
-//         });
-//         // Burger menu Animation
-//         burger.classList.toggle('toggle');
-//     });
-// }
+navToggle.addEventListener('click', () => {
+	const visibility = primaryNav.getAttribute('data-visible');
+
+	if (visibility === "false") {
+		primaryNav.setAttribute("data-visible", true);
+		navToggle.setAttribute("aria-expanded", true);
+	} else if (visibility === "true") {
+		primaryNav.setAttribute("data-visible", false);
+		navToggle.setAttribute("aria-expanded", false);
+	}
+});
 
 // Copy Text
 
-// function copyAddress() {
-//   /* Get the text field */
-//   // var copyText = document.getElementById("Copy-Text");
-//   var copyText = `Amal Lalgi
-// Padinjarayil House.
-// Narakakkanam P.O.
-// Narakakkanam, Idukki
-// Kerala, India`;
+function copyAddress() {
+  /* Get the text field */
+  var copyText = document.getElementById("Copy-Text");
+  var copyText = `Amal Lalgi
+Padinjarayil House.
+Narakakkanam P.O.
+Narakakkanam, Idukki
+Kerala, India`;
 
-//   navigator.clipboard.writeText(copyText);
+  navigator.clipboard.writeText(copyText);
 
 
-//   let copyMsg = document.getElementById('message-copy');
-//   copyMsg.innerText = "Copied!"
+  let copyMsg = document.getElementById('message-copy');
+  copyMsg.innerText = "Copied!"
 
-// }
+}
 
 // Go Top button
 
-// const goTop = () => window.scrollTo({top: 0, behavior: 'smooth'});
+const goTop = () => window.scrollTo({top: 0, behavior: 'smooth'});
 
 // Function Callouts
 
 const functionCallOuts = () => {
-	// navSlide();
 	randomColor();
 	shinyOrNot();
 	randomLogoGenerator();

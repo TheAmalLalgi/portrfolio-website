@@ -16,7 +16,7 @@
 			<!-- Navigation Bar -->
 			<nav>
 				<div class="logo"><a href="#"><img id="logo-image" alt="Amal Lalgi"></a></div>
-				<ul class="nav-links">
+				<ul data-visible="false" class="nav-links" id="nav-links">
 					<li><a href="#Home">Home</a></li>
 					<li><a href="#About">My Story</a></li>
 					<li><a href="#Skills">My Skills</a></li>
@@ -24,7 +24,7 @@
 					<li><a href="#Contact">Contact Me</a></li>
 				</ul>
 				<!-- Burger Menu (Mobile only) -->
-				<div class="burger-menu">
+				<div class="burger-menu" aria-expanded="false">
 			        <div class="line1"></div>
 			        <div class="line2"></div>
 			        <div class="line3"></div>
@@ -76,7 +76,7 @@
 						<h4> <!-- Prank Description -->
 				    		 ...That's probably everything you'll need to know about me (for now), you can contact me directly for more information. Still wanna know more about me? Click the button!
 				    	</h4>
-				    	<button><a href="#Skills">READ MORE!</a></button> <!-- Prank Button -->
+				    	<button><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="blank">READ MORE!</a></button> <!-- Prank Button -->
 					</div>
 				</div>
 			</div>
@@ -198,7 +198,7 @@
 						<a href="#"><i class="fab fa-codepen" style="color: ghostwhite;"></i></a>
 					</div>
 					<!-- Address -->
-					<div class="address" id="copy-text">
+					<div class="address" id="copy-text" onclick="copyAddress()">
 						<h1>My Address</h1>
 						<h4 id="address">
 							Amal Lalgi <br>
@@ -215,15 +215,18 @@
 							<h1>CONTACT ME!</h1>
 							<h3>amallalgi2487@gmail.com</h3>
 						</div>
-						<form action="email"> <!-- Form -->
-							<input type="text" name="name" id="userName" placeholder="Name"/>
-							<input type="text" name="email" id="userEmail" placeholder="Email Address"/>
+
+						<form action="https://formsubmit.co/amallalgi2487@gmail.com" method="POST"> <!-- Form -->
+							<input type="text" name="name" id="userName" placeholder="Name" required>
+							<input type="text" name="email" id="userEmail" placeholder="Email Address" required>
 							<textarea name="message" id="userMessage" rows="10" cols="30" placeholder="Message"></textarea>
+							<input type="hidden" name="_next" value="#Home">
 						</form>
+
 						<div class="form-buttons"> <!-- Email Buttons -->
 							<button onclick="goTop()">GO BACK TOP</button>
 							<button id="cancel-btn" onclick="emailForm()">CANCEL</button>
-							<button id="send-btn">SEND</button>
+							<button id="send-btn" type="submit">SEND</button>
 						</div>
 					</div>
 				</div>
